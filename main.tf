@@ -49,9 +49,9 @@ resource "aws_instance" "blog" {
 }
 
 module "autoscaling" {
-  source  = "terraform-aws-modules/alb/aws"
-  version = "7.0.0"
-
+  source  = "terraform-aws-modules/autoscaling/aws"
+  version = "8.0.0"
+  
   name = "blog"
   min_size = 1 
   max_size = 2
