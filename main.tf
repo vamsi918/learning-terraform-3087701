@@ -53,7 +53,7 @@ module "autoscaling" {
   version = "7.0.0"
 
   name = "blog"
-  min_size =1 
+  min_size = 1 
   max_size = 2
 
   vpc_zone_identifier = module.blog_vpc.public_subnets
@@ -62,8 +62,6 @@ module "autoscaling" {
   
   image_id   = data.aws_ami.app_ami.id
   instance_type = var.instance_type
-
-
 }
 
 module "blog_alb" {
@@ -84,13 +82,7 @@ module "blog_alb" {
       backend_protocol = "HTTP"
       backend_port     = 80
       target_type      = "instance"
-      targets = {
-        my_target = {
-          target_id = aws_instance.blog.id
-          port = 80
-        }
-       }
-    }
+     }
   ]
 
   http_tcp_listeners = [
